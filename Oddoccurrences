@@ -1,0 +1,25 @@
+
+import java.util.Map;
+ import java.util.HashMap;
+ 
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        int unpaired = 0;
+        int n = A.length;
+        Map<Integer,Integer> freq_map = new HashMap<Integer,Integer>();
+          
+           for(int i=0; i<n; i++) {
+                 if ( freq_map.containsKey(A[i])) {
+                       int count = freq_map.get(A[i]);
+                       count ++;
+                       freq_map.put(A[i],count);
+                 }
+                 else freq_map.put(A[i], 1);
+           }
+              for(Map.Entry<Integer, Integer> entry :  freq_map.entrySet() ){
+             if (entry.getValue() == 1) unpaired = entry.getKey();
+        }
+                    
+        return unpaired;
+    }
