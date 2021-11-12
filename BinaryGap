@@ -1,0 +1,27 @@
+ public int solution(int N) {
+        // write your code in Java SE 8
+
+        String s = Integer.toBinaryString(N);
+
+        int i=0, temp = 0;
+        int gap= 0;
+
+        if(N == 1) return 0;
+                 while(i < s.length()) {
+                        if(s.charAt(i) == '0') {
+                              temp++;
+                             
+                        }
+                        if(s.charAt(i) == '1') {
+                                if(temp > gap) {
+                                    gap=temp;
+                                }
+                                    temp=0;
+                                
+                            }                       
+                        i++;
+
+                 }
+        
+        return gap;
+    }
